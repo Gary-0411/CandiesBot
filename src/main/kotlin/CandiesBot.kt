@@ -73,6 +73,7 @@ private fun registerActions() {
  * @see MessageSubscribersBuilder
  */
 fun Bot.messageDSL() {
+
     subscribeGroupMessages {
         for (action in HelpAction.actions) {
             if (action.noArg)

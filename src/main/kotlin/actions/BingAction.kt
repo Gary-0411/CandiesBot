@@ -7,6 +7,7 @@ import net.mamoe.mirai.message.GroupMessageEvent
 import net.mamoe.mirai.message.data.At
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import java.net.Proxy
 
 object BingAction : Action {
     override val noArg: Boolean = false
@@ -19,6 +20,7 @@ object BingAction : Action {
             return
         }
         val client = OkHttpClient.Builder()
+            .proxy(Proxy.NO_PROXY)
             .build()
         val request =
             Request.Builder()

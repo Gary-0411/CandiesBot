@@ -3,7 +3,6 @@ package actions
 import bean.MusicSearchResult
 import com.google.gson.Gson
 import net.mamoe.mirai.message.GroupMessageEvent
-import net.mamoe.mirai.message.data.ServiceMessage
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
@@ -17,7 +16,9 @@ object MusicAction : Action {
             event.reply("不加参数是坏文明！")
             return
         }
-        val client = OkHttpClient.Builder()
+        val client =
+            OkHttpClient
+            .Builder()
             .build()
         val request =
             Request.Builder()
