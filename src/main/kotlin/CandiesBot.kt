@@ -1,7 +1,4 @@
-import actions.BingAction
-import actions.HelpAction
-import actions.MusicAction
-import actions.PubAction
+import actions.*
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
@@ -50,7 +47,8 @@ private val actions = arrayOf(
     HelpAction,
     PubAction,
     BingAction,
-    MusicAction
+    MusicAction,
+    ImageAction
 )
 
 /**
@@ -73,6 +71,15 @@ private fun registerActions() {
  * @see MessageSubscribersBuilder
  */
 fun Bot.messageDSL() {
+
+    subscribeMessages {
+        for (action in HelpAction.actions) {
+            if (action.noArg)
+                case(action.prefix, trim = true, onEvent = action::invokeMessage)
+            else
+                startsWith(action.prefix, trim = true, onEvent = action::invokeMessage)
+        }
+    }
 
     subscribeGroupMessages {
         for (action in HelpAction.actions) {

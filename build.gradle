@@ -23,6 +23,7 @@ dependencies {
     implementation("net.mamoe:mirai-core-qqandroid:1.2.2")
     implementation("org.jsoup:jsoup:1.13.1")
     implementation("com.squareup.okhttp3:okhttp:4.8.1")
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
     implementation "com.google.code.gson:gson:2.8.6"
 }
 
